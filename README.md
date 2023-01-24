@@ -1,9 +1,9 @@
-# undefined
+# README Generator
   ![Github licence](http://img.shields.io/badge/license-MIT-yellow.svg)
 
 
   ## Description
-  undefined
+  A README generator that creates a readme using a series of questions and answers in the terminal using nodejs.
 
   ## Table of Contents
   - [Installation](#installation)
@@ -14,16 +14,16 @@
   - [Questions](#questions)
 
   ## Installation
-  The repository should be cloned from github. Then run npm init -y followed by npm install inquirer@^8.0.0 Next, in the command line run: node index.js and answer the prompts in the command line.
+  The repository should be cloned from github. Then run npm init -y followed by npm install inquirer@^8.0.0 Next, in the command line run: node index.js and answer the prompts in the command line.    
 
   ## Usage
-  undefined
+  to generate a readme for projects
 
   ## License
   MIT
 
   ## Contributing
-  If you would like to contribute to this project, please send me an email
+   If you would like to contribute to this project, please send me an email
 
   ## Tests
   npm test

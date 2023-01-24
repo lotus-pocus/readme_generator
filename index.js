@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require('path');
-const inquirer = require("inquirer");
+const inquirer = require('inquirer');
 const generateMarkdown = require("./utils/generateMarkdown");
 
 // array of questions for user
@@ -8,10 +8,10 @@ const questions = () => {
     return inquirer.prompt([
         {
             type: 'input',
-            name: 'project-title',
+            name: 'title',
             message: 'What is the title of your project?',
             validate: nameInput => {
-                if (nameInput){
+                if (nameInput) {
                     return true;
                 } else {
                     console.log('please enter your project title');
@@ -21,10 +21,10 @@ const questions = () => {
         },
         {
             type: 'input',
-            name: 'Description',
+            name: 'description',
             message: 'Describe your project',
             validate: nameInput => {
-                if (nameInput){
+                if (nameInput) {
                     return true;
                 } else {
                     console.log('please enter a description');
@@ -33,14 +33,27 @@ const questions = () => {
             }
         },
         {
-            type: 'input',
+            type: 'editor',
             name: 'installation',
-            message:'what is the installation process?',
+            message: 'what is the installation process?',
             validate: nameInput => {
-                if (nameInput){
+                if (nameInput) {
                     return true;
                 } else {
                     console.log('Please input the installation process');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'usage',
+            message: 'how will this app be used?',
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log('Please input usage description');
                     return false;
                 }
             }
@@ -51,7 +64,7 @@ const questions = () => {
             message: 'What license will you be using?',
             choices: ['MIT', 'Apache license 2.0', 'Mozilla Public license 2.0', 'microsoft Public License'],
             validate: nameInput => {
-                if (nameInput){
+                if (nameInput) {
                     return true;
                 } else {
                     console.log('Please choose a license');
@@ -64,7 +77,7 @@ const questions = () => {
             name: 'contributing',
             message: 'Please enter contribution guidelines',
             validate: nameInput => {
-                if (nameInput){
+                if (nameInput) {
                     return true;
                 } else {
                     console.log('Please input contribution guidelines');
@@ -77,7 +90,7 @@ const questions = () => {
             name: 'testing',
             message: 'Please enter any test instructions here',
             validate: nameInput => {
-                if (nameInput){
+                if (nameInput) {
                     return true;
                 } else {
                     console.log('Please enter test instructions');
@@ -90,7 +103,7 @@ const questions = () => {
             name: 'questions',
             message: 'Please enter how you can be contacted for any questions here',
             validate: nameInput => {
-                if (nameInput){
+                if (nameInput) {
                     return true;
                 } else {
                     console.log('Please enter contact details');
@@ -107,7 +120,7 @@ const questions = () => {
 // }
 const writeFile = data => {
     fs.writeFile('README.md', data, err => {
-        if(err) {
+        if (err) {
             console.log(err);
             return;
         } else {
@@ -121,15 +134,15 @@ const writeFile = data => {
 
 // }
 questions()
-.then(answers => {
-    return generateMarkdown(answers);
-})
+    .then(answers => {
+        return generateMarkdown(answers);
+    })
 
-.then(data => {
-    return writeFile(data);
-})
+    .then(data => {
+        return writeFile(data);
+    })
 
-.catch(err => {
-    console.log(err)
-})
+    .catch(err => {
+        console.log(err)
+    })
 
