@@ -22,7 +22,7 @@ function generateMarkdown(data) {
   ${data.usage}
 
   ## License
-  ${data.license}
+  The license for this project is ${data.license}
 
   ## Contributing
   ${data.contributing}
@@ -31,7 +31,7 @@ function generateMarkdown(data) {
   ${data.testing}
 
   ## Questions
-  ${data.questions}
+  If you have any questions, please contact me ${data.email}. Here is a link to my github page ${data.github}
 `;
 }
 

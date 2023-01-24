@@ -80,7 +80,7 @@ const questions = () => {
                 if (nameInput) {
                     return true;
                 } else {
-                    console.log('Please input contribution guidelines');
+                    console.log('Please input contribution guidelines here.');
                     return false;
                 }
             }
@@ -88,25 +88,38 @@ const questions = () => {
         {
             type: 'input',
             name: 'testing',
-            message: 'Please enter any test instructions here',
+            message: 'Please enter any test instructions here.',
             validate: nameInput => {
                 if (nameInput) {
                     return true;
                 } else {
-                    console.log('Please enter test instructions');
+                    console.log('Please enter test instructions here.');
                     return false;
                 }
             }
         },
         {
             type: 'input',
-            name: 'questions',
-            message: 'Please enter how you can be contacted for any questions here',
+            name: 'github',
+            message: 'Please enter your github username here.',
             validate: nameInput => {
                 if (nameInput) {
                     return true;
                 } else {
-                    console.log('Please enter contact details');
+                    console.log('Please enter username.');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'Please enter your email address here.',
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log('Please enter username.');
                     return false;
                 }
             }
@@ -129,10 +142,7 @@ const writeFile = data => {
     })
 };
 
-// function to initialize program
-// function init() {
 
-// }
 questions()
     .then(answers => {
         return generateMarkdown(answers);
